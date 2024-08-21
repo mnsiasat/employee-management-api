@@ -10,7 +10,10 @@ async function main() {
   connectDB
   const app = express() as any
   const schema = await buildSchema({ resolvers: [EmployeeResolver] })
-  const server = new ApolloServer({ schema })
+  const server = new ApolloServer({
+    schema,
+    introspection: true,
+  })
   await server.start()
   server.applyMiddleware({ app })
   app.listen(4000, () =>

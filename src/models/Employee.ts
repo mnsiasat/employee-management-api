@@ -10,9 +10,9 @@ export class Employee extends BaseEntity {
 
   @Field(() => String)
   @Column()
-  name!: string
+  fullName!: string
 
   @Field(() => String)
-  @Column()
+  @Column({ unique: true })
   email!: string
 }
